@@ -1,18 +1,18 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use std::path::PathBuf;
-use std::sync::Mutex;
-use storage::{Person, PersonStorage};
-use tauri::Manager;
-
-use crate::db_manager::{BDOperation, SerdePersons};
-
 mod cmd;
 mod db_manager;
 mod gui_func;
 mod storage;
 mod ui;
+
+use crate::db_manager::{BDOperation, SerdePersons};
+
+use std::path::PathBuf;
+use std::sync::Mutex;
+use storage::PersonStorage;
+use tauri::Manager;
 
 fn main() {
     tauri::Builder::default()
@@ -26,7 +26,7 @@ fn main() {
             Ok(())
         })
         .manage(AppState::default())
-        .invoke_handler(tauri::generate_handler![open_db, get_info])
+        .invoke_handler(tauri::generate_handler![open_db])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -71,10 +71,10 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
     Ok(persons)
 }
 
-#[tauri::command]
-fn get_info(state: tauri::State<AppState>) -> String {
-    todo!()
-}
+// #[tauri::command]
+// fn get_info(state: tauri::State<AppState>) -> String {
+//     todo!()
+// }
 
 impl BDOperation for AppState {
     fn load(&self) -> Result<crate::db_manager::SerdePersons, Box<dyn std::error::Error>> {
