@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { save } from "@tauri-apps/api/dialog";
   import { invoke } from "@tauri-apps/api/tauri";
-  import {persons, type Persons} from '../scripts/personsStorage'
+  import {persons,type Person, type Persons} from '../scripts/personsStorage'
   
   async function openSaveDialog() {
     const filePath = await save({
@@ -14,8 +14,11 @@
     });
     
     invoke<Persons>("open_db", { filePath: filePath }).then((data)=>{ 
-      persons.set(data);
+      
+     
+      persons.set(data);  
       console.log($persons);
+      console.log($persons.persons.at(0));
     });
   }
 </script>

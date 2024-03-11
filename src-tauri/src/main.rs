@@ -71,10 +71,6 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
     Ok(persons)
 }
 
-// #[tauri::command]
-// fn get_info(state: tauri::State<AppState>) -> String {
-//     todo!()
-// }
 
 impl BDOperation for AppState {
     fn load(&self) -> Result<crate::db_manager::SerdePersons, Box<dyn std::error::Error>> {

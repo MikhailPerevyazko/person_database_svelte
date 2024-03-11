@@ -4,10 +4,13 @@ export interface Person {
   id: number;
   name: string;
   surname: string;
-  middle_name: string;
-  date_of_birth: string;
+  middleName: string;
+  dateOfBirth: string;
   gender: boolean;
 }
-export interface Persons extends Array<Person> {}
-//* Глобальная переменная с информацией о персонах.
+export interface Persons {
+  persons: Person[];
+}
+//* Глобальная переменная с информацией о персонах
+
 export const persons = writable<Persons>();

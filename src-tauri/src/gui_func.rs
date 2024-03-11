@@ -11,6 +11,11 @@ pub struct GUI {}
 
 impl UI for GUI {
     fn show_all_info(&self, _data: &PersonStorage) -> Result<SerdePersons, String> {
+        // let info = data.get(None);
+        // match info {
+        //     Some(info) => info,
+        //     None => println!("Err"),
+        // }
         todo!()
     }
 
