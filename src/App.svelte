@@ -1,9 +1,9 @@
 <script lang="ts">
-  import SelectFileButton from './lib/SelectFileButton.svelte'
-  import DeleteButton from './lib/DeleteButton.svelte';
-  import FindByIdButton from './lib/FindByIdButton.svelte';
-  import AddPersonInfo from './lib/AddPersonInfo.svelte';
-  import OutputInfo from './lib/OutputInfo.svelte';
+  import SelectFileButton from './lib/components/InputsOutputs/SelectFileButton.svelte'
+  import DeleteButton from './lib/components/Buttons/DeleteButton.svelte';
+  import FindByIdButton from './lib/components/Buttons/FindByIdButton.svelte';
+  import AddPersonInfo from './lib/components/InputsOutputs/AddPersonInfo.svelte';
+  import OutputInfo from './lib/components/InputsOutputs/OutputInfo.svelte';
 </script>
 
 <main>

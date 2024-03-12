@@ -2,4 +2,4 @@
     import { Button, GradientButton } from 'flowbite-svelte';
 </script>
 
-<GradientButton class="ml-4" shadow color="red">Delete</GradientButton>
+<GradientButton class="ml-4" shadow color="red">Delete by ID</GradientButton>
