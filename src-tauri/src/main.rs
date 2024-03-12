@@ -63,14 +63,16 @@ impl Default for AppState {
 
 #[tauri::command]
 fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePersons, String> {
+    //*Записали file_path в структуру AppState */
     state.set_file_path(file_path);
     let persons = match state.load() {
         Ok(person) => person,
         Err(err) => return Err(err.to_string()),
     };
+    //*Проверяем заполняется ли persons */
+    println!("{:#?}", persons);
     Ok(persons)
 }
-
 
 impl BDOperation for AppState {
     fn load(&self) -> Result<crate::db_manager::SerdePersons, Box<dyn std::error::Error>> {

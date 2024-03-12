@@ -4,13 +4,12 @@ export interface Person {
   id: number;
   name: string;
   surname: string;
-  middleName: string;
-  dateOfBirth: string;
+  middle_name: string;
+  date_of_birth: string;
   gender: boolean;
 }
 export interface Persons {
   persons: Person[];
 }
 //* Глобальная переменная с информацией о персонах
-
 export const persons = writable<Persons>();

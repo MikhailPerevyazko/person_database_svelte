@@ -2,8 +2,6 @@
 import { GradientButton } from 'flowbite-svelte';
 import { invoke } from "@tauri-apps/api/tauri";
 import {persons,type Person, type Persons} from '../scripts/personsStorage'
-
-
 </script>
 
-<GradientButton class="ml-4" shadow color="green" on:click{showData}>Find</GradientButton>
+<GradientButton class="ml-4" shadow color="green">Find</GradientButton>
