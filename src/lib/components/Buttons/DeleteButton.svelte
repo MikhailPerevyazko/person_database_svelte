@@ -1,5 +1,4 @@
 <script setup lang="ts">
-    import { Button, GradientButton } from 'flowbite-svelte';
 </script>
 
-<GradientButton class="ml-4" shadow color="red">Delete by ID</GradientButton>
+<button class="ml-4 text-white bg-red-700">Delete by ID</button>

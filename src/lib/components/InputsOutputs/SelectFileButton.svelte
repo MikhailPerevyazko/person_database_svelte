@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { save } from "@tauri-apps/api/dialog";
   import { invoke } from "@tauri-apps/api/tauri";
-  import {persons,type Person, type Persons} from '../scripts/personsStorage'
+  import {persons,type Person, type Persons} from '../../../scripts/personsStorage'
   
   async function openSaveDialog() {
     const filePath = await save({
@@ -23,7 +23,7 @@
 </script>
 
 <div>
-  <button class="ml-4" on:click={openSaveDialog}>Select a file</button>
+  <button class="ml-4 text-white bg-gray-800" on:click={openSaveDialog}>Select a file</button>
 </div>
 
 <style></style>

@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { Button, GradientButton } from 'flowbite-svelte';
 import { AccordionItem, Accordion } from 'flowbite-svelte';
 import { Label, Input } from 'flowbite-svelte';
 </script>
 
 <div>
     <Accordion >
-      <AccordionItem class="border border-y-slate-500">
+      <AccordionItem>
         <span slot="header">Add new info</span>
         <div class="mb-6">
           <Label for="large-input" class="block mb-2">Name</Label>
@@ -25,14 +24,14 @@ import { Label, Input } from 'flowbite-svelte';
           <Input id="large-input" size="lg" placeholder="Input new person's date of birth" />
         </div>
         <div class="mb-6">
-          <form class="max-w-sm mx-auto">
-            <Label for="large-input" class="block mb-2">Gender</Label>
+          <form class="">
+            <Label for="large-input" class="block">Gender</Label>
             <select id="underline_select">
                 <option value="true">Male</option>
                 <option value="false">Female</option>
             </select>
           </form>
-          <GradientButton class="m-4" shadow color="blue">Add new info</GradientButton>
+          <button class="m-4 text-white bg-green-700 justify-center">Add new info</button>
         </div>
       </AccordionItem>
     </Accordion>

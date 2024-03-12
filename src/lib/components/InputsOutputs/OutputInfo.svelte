@@ -1,12 +1,12 @@
 <script setup lang="ts">
     import { GradientButton } from 'flowbite-svelte';
-    import { persons } from "../scripts/personsStorage";
+    import { persons } from "../../../scripts/personsStorage";
 </script>
 
-<div class="justify-center">   
+<div class="container">   
     {#if $persons}
     {#each $persons.persons as persons}
-    <div class="m-4 border-2 border-neutral-600">
+    <div class="border-2 border-neutral-600">
         <p> ID: {persons.id}</p>
         <p>Имя: {persons.name}</p> 
         <p>Фамилия: {persons.surname}</p>
@@ -22,6 +22,10 @@
   
 <style>
     p {
-        margin: 16px;
+        margin: 16px;  
+    }
+    .container {
+        column-count: 2;
+        display: flex; gap: 10px;
     }
 </style>

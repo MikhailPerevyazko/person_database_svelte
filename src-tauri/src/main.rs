@@ -70,7 +70,7 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
         Err(err) => return Err(err.to_string()),
     };
     //*Проверяем заполняется ли persons */
-    println!("{:#?}", persons);
+    //println!("{:#?}", persons);
     Ok(persons)
 }
 

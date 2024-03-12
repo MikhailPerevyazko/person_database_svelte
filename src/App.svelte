@@ -7,11 +7,11 @@
 </script>
 
 <main>
-  <div class="grid justify-center m-10 items-center">
+  <div class="grid justify-center m-10 items-center border-2 border-neutral-500">
     <h1 class="mb-4">FIND PERSON</h1>
     <div class="flex items-stretch justify-center ">
       <SelectFileButton/>
-      <input class="ml-4" type="text" placeholder="Find by id">
+      <input class="ml-4 rounded-lg" type="text" placeholder="Enter the ID">
       <FindByIdButton/>
       <DeleteButton/>
     </div>

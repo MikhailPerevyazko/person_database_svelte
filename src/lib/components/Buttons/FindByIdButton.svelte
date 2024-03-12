@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { GradientButton } from 'flowbite-svelte';
 import { invoke } from "@tauri-apps/api/tauri";
-import {persons,type Person, type Persons} from '../scripts/personsStorage'
+import {persons,type Person, type Persons} from '../../../scripts/personsStorage'
 </script>
 
-<GradientButton class="ml-4" shadow color="green">Find by ID</GradientButton>
+<button class="ml-4 text-white bg-green-700">Find by ID</button>
