@@ -3,7 +3,7 @@ import { AccordionItem, Accordion } from 'flowbite-svelte';
 import { Label, Input } from 'flowbite-svelte';
 </script>
 
-<div>
+<div class="m-4">
     <Accordion >
       <AccordionItem>
         <span slot="header">Add new info</span>

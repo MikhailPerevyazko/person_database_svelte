@@ -7,20 +7,23 @@
 </script>
 
 <main>
-  <div class="grid justify-center m-10 items-center border-2 border-neutral-500">
-    <h1 class="mb-4">FIND PERSON</h1>
-    <div class="flex items-stretch justify-center ">
-      <SelectFileButton/>
-      <input class="ml-4 rounded-lg" type="text" placeholder="Enter the ID">
-      <FindByIdButton/>
-      <DeleteButton/>
+  <div class="m-10 grid grid-rows-10 gap-4">
+    <div class="header space-y-4 border-2 border-emerald-600 rows-span-2 m-10">
+      <h1 class="mb-4">FIND PERSON</h1>
+        <SelectFileButton/>
+        <input class="ml-4 rounded-lg" type="text" placeholder="Enter the ID">
+        <FindByIdButton/>
+        <DeleteButton/>
+        <AddPersonInfo/>
     </div>
-    <div class="m-10 self-stretch">
-      <AddPersonInfo></AddPersonInfo>
+    <div class="rows-span-6">
+      <OutputInfo></OutputInfo>
     </div>
-    <OutputInfo></OutputInfo>
   </div>
-
 </main>
 
-<style></style>
+<style>
+  /* .header {
+    position: fixed;
+  } */
+</style>
