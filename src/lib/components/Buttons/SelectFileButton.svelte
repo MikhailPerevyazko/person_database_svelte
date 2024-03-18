@@ -23,7 +23,7 @@
 </script>
 
 <div>
-  <button class="ml-4 text-white bg-gray-800" on:click={openSaveDialog}>Select a file</button>
+  <button class=" text-white bg-gray-800" on:click={openSaveDialog}>Select a file</button>
 </div>
 
 <style></style>
