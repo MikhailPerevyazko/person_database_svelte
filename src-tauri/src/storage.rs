@@ -127,3 +127,13 @@ impl Into<Vec<(i32, Person)>> for PersonStorage {
         result
     }
 }
+
+impl Into<PersonStorage> for Vec<(i32, Person)> {
+    fn into(self) -> PersonStorage {
+        let data = self.iter().fold(HashMap::new(), |mut res, (id, person)| {
+            let _ = res.insert(id.to_owned(), person.to_owned());
+            res
+        });
+        PersonStorage { persons: data }
+    }
+}

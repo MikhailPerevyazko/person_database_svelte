@@ -80,7 +80,6 @@ impl Into<PersonStorage> for SerdePersons {
         let result: HashMap<i32, Person> =
             self.persons.iter().fold(HashMap::new(), |mut res, item| {
                 if let Ok(person) = item.to_owned().try_into() {
-                    println!("add record");
                     let _ = res.insert(item.id, person);
                 }
                 res
