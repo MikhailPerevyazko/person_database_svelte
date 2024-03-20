@@ -11,10 +11,14 @@ pub trait GUI {
         find_param: String,
     ) -> Result<SerdePersons, String>;
 }
-pub struct GUI_struct {}
+pub struct GUIStruct {}
 
-impl GUI for GUI_struct {
-    fn show_by_param(&self, data: &PersonStorage, find_id: String) -> Result<SerdePersons, String> {
+impl GUI for GUIStruct {
+    fn show_by_param(
+        &self,
+        _data: &PersonStorage,
+        _find_id: String,
+    ) -> Result<SerdePersons, String> {
         // let info_from_id = data.get(Some(find_id));
         // match info_from_id {
         //     Some(info_from_id) => Ok(info_from_id),
