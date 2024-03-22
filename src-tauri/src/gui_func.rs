@@ -1,6 +1,5 @@
-use std::str::FromStr;
-
 use crate::{db_manager::SerdePersons, storage::PersonStorage};
+use std::str::FromStr;
 
 pub trait GUI {
     fn add_info(&self, data: &mut PersonStorage) -> Result<SerdePersons, String>;
@@ -14,17 +13,21 @@ pub trait GUI {
 pub struct GUIStruct {}
 
 impl GUI for GUIStruct {
-    fn show_by_param(
-        &self,
-        _data: &PersonStorage,
-        _find_id: String,
-    ) -> Result<SerdePersons, String> {
-        // let info_from_id = data.get(Some(find_id));
-        // match info_from_id {
-        //     Some(info_from_id) => Ok(info_from_id),
-        //     None => Err("error".to_string()),
-        // }
-        todo!()
+    fn show_by_param(&self, data: &PersonStorage, find_id: String) -> Result<SerdePersons, String> {
+        let mut id: Vec<i32> = Vec::new();
+        for i in find_id.lines() {
+            id.push(i.parse::<i32>().unwrap_or_default());
+        }
+        //*Получаем вектор персона по id */
+        let info_from_id = data.get(Some(id));
+        match info_from_id {
+            None => Err("error")?,
+            Some(info_from_id) => {
+                let person_storage_info: PersonStorage = info_from_id.into();
+                let serde_persons_info: SerdePersons = person_storage_info.into();
+                Ok(serde_persons_info)
+            }
+        }
     }
 
     fn add_info(&self, _data: &mut PersonStorage) -> Result<SerdePersons, String> {

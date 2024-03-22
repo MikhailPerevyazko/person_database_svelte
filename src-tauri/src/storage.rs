@@ -52,6 +52,7 @@ impl Person {
         )
     }
 }
+
 impl Into<SerdePersons> for PersonStorage {
     fn into(self) -> SerdePersons {
         let result = self
