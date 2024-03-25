@@ -4,7 +4,7 @@
   import FindByIdButton from './lib/components/Buttons/FindByIdButton.svelte';
   import AddPersonInfo from './lib/components/InputsOutputs/AddPersonInfo.svelte';
   import OutputInfo from './lib/components/InputsOutputs/OutputInfo.svelte';
-  import DropDownMenu from './lib/components/InputsOutputs/DropDownMenu.svelte'
+  import Input from './lib/components/InputsOutputs/Input.svelte'
 </script>
 
 <main>
@@ -12,7 +12,7 @@
     <div class="header space-y-4 m-10">
       <h1 class="mb-4">FIND PERSON</h1>
       <SelectFileButton/>
-      <DropDownMenu/>
+      <Input/>
       <FindByIdButton/>
       <DeleteButton/>
       <AddPersonInfo/>
