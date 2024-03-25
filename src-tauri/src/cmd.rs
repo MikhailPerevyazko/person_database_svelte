@@ -87,10 +87,9 @@ impl UI for TUI {
             date_of_birth: parsed_date,
             gender: new_gender,
         };
-        // *println!("{:#?}", new_person);
+
         data.add(new_id, new_person);
-        println!("Информация о новой персоне успешно добавлена!");
-        return "good".to_string();
+        return "Информация о новой персоне успешно добавлена!".to_string();
     }
 
     fn show_info(&self, data: &PersonStorage) -> String {

@@ -35,7 +35,7 @@ impl SerdePerson {
 }
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct SerdePersons {
-    persons: Vec<SerdePerson>,
+    pub persons: Vec<SerdePerson>,
 }
 
 impl SerdePersons {

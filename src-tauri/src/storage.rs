@@ -1,9 +1,10 @@
 use crate::db_manager::{SerdePerson, SerdePersons};
 
 use chrono::NaiveDate;
+use serde::Deserialize;
 use std::collections::HashMap;
 
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Deserialize)]
 pub struct Person {
     pub name: String,
     pub surname: String,
@@ -11,7 +12,7 @@ pub struct Person {
     pub date_of_birth: NaiveDate,
     pub gender: bool,
 }
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, Deserialize)]
 pub struct PersonStorage {
     pub persons: HashMap<i32, Person>,
 }

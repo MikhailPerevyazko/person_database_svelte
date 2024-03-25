@@ -8,9 +8,10 @@ mod storage;
 mod ui;
 
 use crate::db_manager::{BDOperation, SerdePersons};
-use crate::gui_func::GUIStruct;
+use crate::gui_func::{GUIStruct, GUI};
 
 use std::path::PathBuf;
+
 use std::sync::Mutex;
 use storage::PersonStorage;
 use tauri::Manager;
@@ -27,7 +28,7 @@ fn main() {
             Ok(())
         })
         .manage(AppState::default())
-        .invoke_handler(tauri::generate_handler![open_db, show_by_id])
+        .invoke_handler(tauri::generate_handler![open_db, show_info_by_id])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -70,16 +71,17 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
         Ok(person) => person,
         Err(err) => return Err(err.to_string()),
     };
-    //*Проверяем заполняется ли persons */
-    //println!("{:#?}", persons);
     Ok(persons)
 }
 
 #[tauri::command]
-fn show_by_id(_person_id: String) -> Result<SerdePersons, String> {
-    //let gui: GUIStruct = GUIStruct {};
-    //let find_person_by_id: SerdePersons =
-    todo!()
+fn show_info_by_id(data: PersonStorage, find_id: String) -> Result<SerdePersons, String> {
+    let gui: GUIStruct = GUIStruct {};
+    let found_data: SerdePersons = match gui.find_by_param(&data, find_id) {
+        Err(err) => return Err(err.to_string()),
+        Ok(data) => data,
+    };
+    Ok(found_data)
 }
 
 impl BDOperation for AppState {

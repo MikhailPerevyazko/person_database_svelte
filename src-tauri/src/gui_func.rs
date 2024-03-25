@@ -4,7 +4,7 @@ use std::str::FromStr;
 pub trait GUI {
     fn add_info(&self, data: &mut PersonStorage) -> Result<SerdePersons, String>;
     fn delete_by_param(&self, data: &mut PersonStorage) -> Result<SerdePersons, String>;
-    fn show_by_param(
+    fn find_by_param(
         &self,
         data: &PersonStorage,
         find_param: String,
@@ -13,15 +13,16 @@ pub trait GUI {
 pub struct GUIStruct {}
 
 impl GUI for GUIStruct {
-    fn show_by_param(&self, data: &PersonStorage, find_id: String) -> Result<SerdePersons, String> {
+    //*Функция, которая получает персону по заданному id. */
+    fn find_by_param(&self, data: &PersonStorage, find_id: String) -> Result<SerdePersons, String> {
         let mut id: Vec<i32> = Vec::new();
         for i in find_id.lines() {
             id.push(i.parse::<i32>().unwrap_or_default());
         }
-        //*Получаем вектор персона по id */
+        //Получаем вектор персона по id
         let info_from_id = data.get(Some(id));
         match info_from_id {
-            None => Err("error")?,
+            None => Err("This ID doesn't exists")?,
             Some(info_from_id) => {
                 let person_storage_info: PersonStorage = info_from_id.into();
                 let serde_persons_info: SerdePersons = person_storage_info.into();
