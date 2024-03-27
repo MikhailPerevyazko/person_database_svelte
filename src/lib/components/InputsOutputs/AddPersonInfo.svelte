@@ -4,7 +4,7 @@ import { Label, Input } from 'flowbite-svelte';
 </script>
 
 <div>
-  <Accordion class=" w-96">
+  <Accordion class=" w-108">
     <AccordionItem> 
       <span slot="header">Add new info</span>
       <div class="mb-6">

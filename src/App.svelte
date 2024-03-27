@@ -1,7 +1,5 @@
 <script lang="ts">
-  import SelectFileButton from './lib/components/Buttons/SelectFileButton.svelte'
-  import DeleteButton from './lib/components/Buttons/DeleteButton.svelte';
-  import FindByIdButton from './lib/components/Buttons/FindByIdButton.svelte';
+  import SelectFileButton from './lib/components/Buttons/SelectFileButton.svelte';
   import AddPersonInfo from './lib/components/InputsOutputs/AddPersonInfo.svelte';
   import OutputInfo from './lib/components/InputsOutputs/OutputInfo.svelte';
   import Input from './lib/components/InputsOutputs/Input.svelte'
@@ -13,8 +11,6 @@
       <h1 class="mb-4">FIND PERSON</h1>
       <SelectFileButton/>
       <Input/>
-      <FindByIdButton/>
-      <DeleteButton/>
       <AddPersonInfo/>
     </div>
     <div class="m-10 overflow-auto two-column-div w-96">

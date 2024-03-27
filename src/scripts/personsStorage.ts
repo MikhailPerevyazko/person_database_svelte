@@ -8,6 +8,7 @@ export interface Person {
   date_of_birth: string;
   gender: boolean;
 }
+
 export interface Persons {
   persons: Person[];
 }

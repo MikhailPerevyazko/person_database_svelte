@@ -16,7 +16,7 @@
     invoke<Persons>("open_db", { filePath: filePath }).then((data)=>{ 
 
       persons.set(data);  
-      console.log($persons);
+      //console.log($persons);
 
     });
   }

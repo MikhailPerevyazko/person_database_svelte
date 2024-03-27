@@ -13,7 +13,7 @@
             <p>Фамилия: {persons.surname}</p>
             <p>Отчество: {persons.middle_name}</p>
             <p>Дата рождения: {persons.date_of_birth}</p>
-            <p>Пол: {persons.gender}</p>
+            <p>Пол: {persons.gender}}</p>
             <div>
                 <GradientButton class="m-4" shadow color="red">Delete</GradientButton>
                 <GradientButton class="m-4" shadow color="blue">Change</GradientButton>

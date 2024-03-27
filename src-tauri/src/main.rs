@@ -75,13 +75,14 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
 }
 
 #[tauri::command]
-fn show_info_by_id(data: PersonStorage, find_id: String) -> Result<SerdePersons, String> {
+fn show_info_by_id(data: SerdePersons, find_id: String) -> Result<SerdePersons, String> {
     let gui: GUIStruct = GUIStruct {};
-    let found_data: SerdePersons = match gui.find_by_param(&data, find_id) {
+    let serde_data: PersonStorage = data.into();
+    let person = match gui.find_by_param(&serde_data, find_id) {
         Err(err) => return Err(err.to_string()),
         Ok(data) => data,
     };
-    Ok(found_data)
+    Ok(person)
 }
 
 impl BDOperation for AppState {
