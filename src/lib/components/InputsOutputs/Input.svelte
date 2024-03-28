@@ -9,7 +9,6 @@
             console.log(persons.set(findData)))
             .catch((err) => 
                 console.log(err));
-                //alert(err));
     }
  
 </script>

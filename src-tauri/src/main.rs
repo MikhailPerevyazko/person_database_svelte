@@ -11,7 +11,6 @@ use crate::db_manager::{BDOperation, SerdePersons};
 use crate::gui_func::{GUIStruct, GUI};
 
 use std::path::PathBuf;
-
 use std::sync::Mutex;
 use storage::PersonStorage;
 use tauri::Manager;
@@ -28,7 +27,11 @@ fn main() {
             Ok(())
         })
         .manage(AppState::default())
-        .invoke_handler(tauri::generate_handler![open_db, show_info_by_id])
+        .invoke_handler(tauri::generate_handler![
+            open_db,
+            show_info_by_id,
+            add_new_info
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
@@ -76,13 +79,44 @@ fn open_db(state: tauri::State<AppState>, file_path: String) -> Result<SerdePers
 
 #[tauri::command]
 fn show_info_by_id(data: SerdePersons, find_id: String) -> Result<SerdePersons, String> {
-    let gui: GUIStruct = GUIStruct {};
-    let serde_data: PersonStorage = data.into();
-    let person = match gui.find_by_param(&serde_data, find_id) {
+    let gui = GUIStruct {};
+    let person_storage_data: PersonStorage = data.into();
+    let person = match gui.find_by_param(&person_storage_data, find_id) {
         Err(err) => return Err(err.to_string()),
         Ok(data) => data,
     };
     Ok(person)
+}
+
+#[tauri::command]
+fn add_new_info(
+    data: SerdePersons,
+    new_name: String,
+    new_surname: String,
+    new_middle_name: String,
+    string_date: String,
+    new_gender_string: String,
+    state: tauri::State<AppState>,
+) -> String {
+    let gui: GUIStruct = GUIStruct {};
+
+    let mut person_storage_data: PersonStorage = data.into();
+
+    gui.add_info(
+        &mut person_storage_data,
+        new_name,
+        new_surname,
+        new_middle_name,
+        string_date,
+        new_gender_string,
+    );
+
+    let serde_new_data: SerdePersons = person_storage_data.into();
+
+    state.get_file_path();
+    state.save(&serde_new_data).unwrap();
+
+    return "New information added success!".to_string();
 }
 
 impl BDOperation for AppState {

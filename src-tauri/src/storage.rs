@@ -68,10 +68,9 @@ impl Into<SerdePersons> for PersonStorage {
 }
 
 impl PersonStorage {
-    pub fn add(&mut self, id: i32, person: Person) {
+    pub fn add(&mut self, id: i32, person: Person) -> Option<Person> {
         let ret = self.persons.insert(id, person);
-        println!("{:?}", ret);
-        // println!("{:?}", self);
+        ret
     }
 
     pub fn get(&self, id: Option<Vec<i32>>) -> Option<Vec<(i32, Person)>> {

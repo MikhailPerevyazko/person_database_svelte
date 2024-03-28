@@ -87,6 +87,7 @@ impl Into<PersonStorage> for SerdePersons {
         PersonStorage::new(result)
     }
 }
+
 pub trait BDOperation {
     fn load(&self) -> Result<SerdePersons, Box<dyn Error>>;
     fn save(&self, persons: &SerdePersons) -> Result<(), Box<dyn Error>>;
